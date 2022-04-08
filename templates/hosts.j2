@@ -1,0 +1,4 @@
+[linode]
+{% for i in linode %}
+test-1 ansible_host={{i["ip"]}} ansible_user=root ansible_ssh_private_key_file=~/.ssh/id_rsa
+{%endfor%}

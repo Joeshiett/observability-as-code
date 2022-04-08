@@ -1,0 +1,6 @@
+[linode]
+test-1 ansible_host=45.79.220.162 ansible_user=root ansible_ssh_private_key_file=~/.ssh/id_rsa
+
+[promtail]
+test-2 ansible_host=170.187.142.254 ansible_user=root ansible_ssh_private_key_file=~/.ssh/id_rsa
+test-3 ansible_host=170.187.134.173 ansible_user=root ansible_ssh_private_key_file=~/.ssh/id_rsa

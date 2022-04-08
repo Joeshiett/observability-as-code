@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Clone Github repository
+      ansible.builtin.git:
+        repo: https://github.com/Joeshiett/observability-as-code.git
+        dest: /home/josepheshiett/oac
+        clone: yes
+        update: yes        
+
+    # - name: Start Docker Compose
+    #   shell: docker-compose up -d
+    #   args:
+    #     chdir: /home/josepheshiett/oac/pag-stack/
+
+    - name: Restart Docker Compose
+      shell: docker-compose down && docker-compose up -d
+      args:
+        chdir: /home/josepheshiett/oac/pag-stack/

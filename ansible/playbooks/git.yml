@@ -1,0 +1,3 @@
+- hosts: Monitoring
+  roles:
+    - { role: geerlingguy.git }

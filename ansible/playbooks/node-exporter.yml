@@ -1,0 +1,5 @@
+- hosts: all
+  user: joseph
+  become: yes
+  roles:
+    - role: cloudalchemy.node_exporter

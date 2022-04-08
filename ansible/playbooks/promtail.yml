@@ -1,0 +1,15 @@
+- hosts: promtail
+  roles:
+    - role: patrickjahns.promtail
+      vars:
+        promtail_config_clients:
+          - url: "http://45.79.220.162:3100/loki/api/v1/push"
+        promtail_config_scrape_configs:
+          - job_name: system
+            static_configs:
+            - targets:
+                - localhost
+              labels:
+                job: varlogs
+                __path__: /var/log/*log
+        promtail_system_user: root

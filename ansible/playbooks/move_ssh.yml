@@ -1,0 +1,11 @@
+---
+- name: Move SSH key 
+  become: yes
+  hosts: all
+  tasks:
+  - name: Deploy SSH public key
+    ansible.posix.authorized_key:
+      user: "root"
+      state: present 
+      key: "{{ lookup('file', '/Users/admin/.ssh/id_rsa.pub') }}"
+      

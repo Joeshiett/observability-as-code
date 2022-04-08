@@ -1,0 +1,17 @@
+---
+- hosts: linode
+  become: yes
+  tasks: 
+    - name: Ensures App Dir Exists
+      file: path=/home/app state=directory
+
+    - name: Copy docker compose to server
+      copy:
+        src: ~/observability-as-code/pag-stack/
+        dest: /home/app
+        mode: preserve
+
+    - name: Start Docker Compose
+      shell: docker-compose up -d
+      args:
+         chdir: /home/app 
